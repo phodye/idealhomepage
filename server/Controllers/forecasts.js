@@ -3,7 +3,6 @@ const axios = require('axios')
 require('dotenv').config()
 
 const addForecast = (request, response) => {
-
   let cityName = request.body.city
   let stateCode = request.body.state
   let countryCode = request.body.country
@@ -48,4 +47,18 @@ const addForecast = (request, response) => {
     })
 }
 
-module.exports = {addForecast}
+const getAllForecasts = (request, response) => {
+  let getQuery = `SELECT * FROM forecasts`
+
+  pool
+    .query(getQuery)
+      .then((data) => {
+        response.send(data.rows)
+      })
+      .catch((err) => {
+        console.log('error getting forecasts', err)
+        response.status(500)
+      })
+}
+
+module.exports = {addForecast, getAllForecasts}

@@ -12,6 +12,7 @@ const WeatherContainer = () => {
     axios.post('/city', { city, state, country })
       .then(() => {
         console.log('posted')
+        getForecasts()
       })
       .catch((err) => {
         console.log('error searching coordinates', err)
@@ -20,12 +21,22 @@ const WeatherContainer = () => {
 
   const getForecasts = () => {
     axios.get('/forecasts')
+      .then((data) => {
+        setForecastList(data.data)
+      })
+      .catch((err) => {
+        console.log('error getting forecasts', err)
+      })
   }
 
   return (
     <>
       <WeatherSearch findCityForecast={findCityForecast} />
-      <WeatherDisplay />
+      {forecastList.length > 0 ?
+      forecastList.map((city, index) => {
+        return <WeatherDisplay key={index} city={city}/>
+      })
+      : null}
     </>
   );
 }
