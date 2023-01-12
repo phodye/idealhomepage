@@ -8,6 +8,7 @@
     "server": "nodemon server/index.js",
     "build-dev": "webpack --mode development --watch",
     "build-prod": "webpack --mode production",
+    "seed": "node database/seed.js",
     "start": "webpack serve --hot --mode development"
   },
   "keywords": [],
@@ -25,6 +26,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "pg": "^8.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
