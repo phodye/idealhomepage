@@ -4,9 +4,13 @@ import WeatherSearch from './WeatherSearch.jsx'
 
 const WeatherContainer = () => {
 
+  const findCityCoordinates = (city, state) => {
+    console.log(city, state)
+  }
+
   return (
     <>
-      <WeatherSearch />
+      <WeatherSearch findCityCoordinates={findCityCoordinates} />
       <WeatherDisplay />
     </>
   );

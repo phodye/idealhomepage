@@ -2,3 +2,8 @@ h1 {
   color: white;
   background-color: black;
 }
+
+.weatherSearch {
+  display: flex;
+  flex-direction: column;
+}
