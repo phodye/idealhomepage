@@ -3,11 +3,13 @@ import WeatherDisplay from './WeatherDisplay.jsx'
 import WeatherSearch from './WeatherSearch.jsx'
 import axios from 'axios';
 
-const WeatherContainer = () => {
+const { useState, useEffect } = React;
 
-  const findCityCoordinates = (city, state, country) => {
-    console.log(city, state, country)
-    axios.post('/coordinates', { city, state, country })
+const WeatherContainer = () => {
+  const [forecastList, setForecastList] = useState([])
+
+  const findCityForecast = (city, state, country) => {
+    axios.post('/city', { city, state, country })
       .then(() => {
         console.log('posted')
       })
@@ -16,9 +18,13 @@ const WeatherContainer = () => {
       })
   }
 
+  const getForecasts = () => {
+    axios.get('/forecasts')
+  }
+
   return (
     <>
-      <WeatherSearch findCityCoordinates={findCityCoordinates} />
+      <WeatherSearch findCityForecast={findCityForecast} />
       <WeatherDisplay />
     </>
   );

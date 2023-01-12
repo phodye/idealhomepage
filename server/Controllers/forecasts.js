@@ -3,7 +3,7 @@ const axios = require('axios')
 require('dotenv').config()
 
 const addForecast = (request, response) => {
-  console.log('coordinates in controller', request.body)
+  console.log('city and state in controller', request.body)
 
   let cityName = request.body.city
   let stateCode = request.body.state

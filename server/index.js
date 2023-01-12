@@ -1,16 +1,14 @@
 require('dotenv').config();
 const express = require('express')
 const path = require('path');
-const coordinates = require('./Controllers/coordinates.js')
+const forecasts = require('./Controllers/forecasts.js')
 
 let app = express()
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.post('/coordinates', (req, res) => {
-  console.log('coordinates on the server', req.body)
-  coordinates.addForecast(req, res)
-  res.end()
+app.post('/city', (req, res) => {
+  forecasts.addForecast(req, res)
 })
 
 app.listen(3000, ()=> {

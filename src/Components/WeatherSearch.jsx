@@ -2,13 +2,13 @@ import React from "react";
 
 const { useState, useEffect } = React;
 
-const WeatherSearch = ({findCityCoordinates}) => {
+const WeatherSearch = ({findCityForecast}) => {
   const [city, setCity] = useState('')
   const [stateCode, setStateCode] = useState('AL')
 
   const submitClick = () => {
     if (city !== '') {
-      findCityCoordinates(city, stateCode, 'US')
+      findCityForecast(city, stateCode, 'US')
     }
   }
 
