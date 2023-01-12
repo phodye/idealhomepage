@@ -8,7 +8,7 @@ const WeatherSearch = ({findCityCoordinates}) => {
 
   const submitClick = () => {
     if (city !== '') {
-      findCityCoordinates(city, stateCode)
+      findCityCoordinates(city, stateCode, 'US')
     }
   }
 

@@ -6,6 +6,11 @@ let app = express()
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "../dist")));
 
+app.post('/coordinates', (req, res) => {
+  console.log('coordinates on the server', req.body)
+  res.send()
+})
+
 app.listen(3000, ()=> {
   console.log(`Listening at http://localhost:3000`);
 });
