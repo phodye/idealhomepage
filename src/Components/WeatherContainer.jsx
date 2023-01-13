@@ -38,7 +38,7 @@ const WeatherContainer = () => {
       <WeatherSearch findCityForecast={findCityForecast} />
       {forecastList.length > 0 ?
       forecastList.map((city, index) => {
-        return <WeatherDisplay key={index} city={city}/>
+        return <WeatherDisplay key={index} city={city} findCityForecast={findCityForecast}/>
       })
       : null}
     </>

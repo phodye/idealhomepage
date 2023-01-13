@@ -1,6 +1,6 @@
 import React from "react";
 
-const WeatherDisplay = ({city}) => {
+const WeatherDisplay = ({city, findCityForecast}) => {
   console.log(city)
   const convertToFarhrenheit = (temp) => {
     return Math.floor(9/5 * (temp - 273) + 32)
@@ -15,6 +15,10 @@ const WeatherDisplay = ({city}) => {
     else if (minutes < 60) return Math.round(minutes) + " minutes ago";
     else if (hours < 24) return Math.round(hours) + " hours ago";
     else return days + " days ago"
+  }
+
+  const updateForecast = () => {
+    findCityForecast(city.cityname, city.statecode, city.countrycode)
   }
 
   let utcDate = city.added;  // ISO-8601 formatted date returned from server
@@ -32,6 +36,7 @@ const WeatherDisplay = ({city}) => {
         <p>Low: {convertToFarhrenheit(city.lowtemp)}</p>
         <img src={`http://openweathermap.org/img/w/${city.weathericon}.png`}></img>
         <p>Last Updated: {lastUpdated}</p>
+        <button onClick={() => {updateForecast()}}>Update</button>
       </div>
     </>
   );
