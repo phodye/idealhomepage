@@ -15,7 +15,7 @@ const WeatherSearch = ({findCityForecast}) => {
   return (
     <>
       <div className="weatherSearch">
-        <h3>Find a Forecast</h3>
+        <p>Find a Forecast</p>
         <label>City:</label>
         <input value={city} onChange={(event) => {setCity(event.target.value)}}></input>
         <label>State:</label>

@@ -6,4 +6,18 @@ h1 {
 .weatherSearch {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+  margin: 1vh;
+  width: 30vw;
+}
+
+.forecast {
+  border: 1px solid black;
+  width: 30vw;
+  margin: 1vh;
+  text-align: center;
+}
+
+.forecast p {
+  margin: 1vh;
 }
