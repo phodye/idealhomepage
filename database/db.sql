@@ -10,7 +10,7 @@ CREATE TABLE forecasts (
  lowtemp NUMERIC,
  descriptor VARCHAR,
  weathericon VARCHAR,
- added TIMESTAMP DEFAULT NOW()
+ added TIMESTAMP DEFAULT (NOW() AT TIME ZONE 'EST')
 );
 
 ALTER TABLE forecasts ADD CONSTRAINT forecasts_pkey PRIMARY KEY (id);
