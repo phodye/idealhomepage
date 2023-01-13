@@ -29,6 +29,10 @@ const WeatherContainer = () => {
       })
   }
 
+  useEffect(() => {
+    getForecasts()
+  }, [])
+
   return (
     <>
       <WeatherSearch findCityForecast={findCityForecast} />
@@ -42,5 +46,3 @@ const WeatherContainer = () => {
 }
 
 export default WeatherContainer;
-
-//comment for test
